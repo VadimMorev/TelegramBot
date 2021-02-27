@@ -18,9 +18,9 @@ public class Weather {
 
     public static String getWeather(String city) throws IOException {
         // forming a query line (I'll set the city and the token)
-        String requesUrl = String.format(URL_CURRENT, city, API_KEY);
+        String requestUrl = String.format(URL_CURRENT, city, API_KEY);
 
-        URL url = new URL(requesUrl);
+        URL url = new URL(requestUrl);
         // I'm doing a request and I'm getting a response
         URLConnection conn = url.openConnection();
         System.out.println("Connection done!");
@@ -69,8 +69,6 @@ public class Weather {
         String weatherDescription = weatherMap.get("description").toString();
         weatherDescription=Character.toUpperCase(weatherDescription.charAt(0))+weatherDescription.substring(1);
 
-//        Map<String,Object>weatherMap= (Map<String, Object>) jsonMap.get("weather");
-//        String weatherDescription=weatherMap.get("description").toString();
         city = (String) jsonMap.get("name");
         result = String.format("Текущая температура в городе %s: %s °С. %s. Скорость ветра: %.2f м/с", city, tempString, weatherDescription,windSpeed);
         System.out.println(result);

@@ -27,6 +27,8 @@ public class Bot extends TelegramLongPollingBot {
             answer.setChatId(message.getChatId().toString());
             if (text.equals("/help")){
                 answer.setText("Введите название вашего города. А в ответ бот пришлёт вам погоду:)");
+            }else if(text.equals("/start")){
+                answer.setText("Введите название вашего города. А в ответ бот пришлёт вам погоду:)");
             }else {
                 try {
                     answer.setText(Weather.getWeather(text));
